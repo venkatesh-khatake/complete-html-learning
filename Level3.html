@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* justify-content: center; */
+      }
+      form {
+        margin-top: 30px;
+        height: 40px;
+        width: 450px;
+        display: flex;
+        gap: 10px;
+      }
+      form input {
+        flex: 2;
+      }
+      form button {
+        flex: 1;
+      }
+      ul {
+        width: 400px;
+        height: auto;
+        /* background-color: red; */
+      }
+      ul li {
+        /* list-style-type: number; */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 30px;
+      }
+      span {
+        padding: 5px 10px;
+        background-color: tomato;
+        color: white;
+        border-radius: 20px;
+      }
+      .dark{
+        color: white;
+        background-color: black;
+      }
+      .light{
+        color: black;
+        background-color: white;
+      }
+
+    </style>
+  </head>
+  <body class="">
+    <form action="">
+      <input type="text" id="task" placeholder="Enter a Task" />
+      <button>Add</button>
+    </form>
+    <ul>
+      <!-- <li>study</li> -->
+    </ul>
+
+    <button id = "toggleTheme">Toggle Theme</button>
+
+    <script>
+      let input = document.getElementById("task");
+      let btn = document.querySelector("button");
+      let ul = document.querySelector("ul");
+
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (input.value != "") {
+          let li = document.createElement("li");
+          li.textContent = input.value;
+          let del = document.createElement("span");
+          del.textContent = "Delete";
+          li.appendChild(del);
+          ul.appendChild(li);
+        } else {
+          alert("input field is mandatory");
+        }
+      });
+
+
+      let toggleTheme = document.getElementById('toggleTheme');
+
+      toggleTheme.addEventListener('click',()=>{
+
+        document.body.classList.toggle('dark')
+      })
+    </script>
+  </body>
+</html>
